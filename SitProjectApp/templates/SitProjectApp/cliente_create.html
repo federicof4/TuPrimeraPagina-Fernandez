@@ -1,0 +1,17 @@
+{% extends "SitProjectApp/base.html" %}
+{% block title %}Nuevo Cliente{% endblock %}
+{% block content %}
+<section class="page-section">
+  <h2 class="fw-bold mb-4">Agregar nuevo cliente</h2>
+  <div class="container mt-3">
+    <form method="post" class="bg-white p-4 rounded shadow-sm">
+      {% csrf_token %}
+      <table class="table table-borderless">
+        {{ form.as_table }}
+      </table>
+      <input type="submit" value="Guardar Cliente" class="btn btn-primary">
+      <a href="{% url 'SitProjectApp:cliente_list' %}" class="btn btn-secondary ms-2">Cancelar</a>       
+    </form>
+  </div>
+</section>
+{% endblock %}
