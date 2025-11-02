@@ -1,0 +1,98 @@
+{% extends 'SitProjectApp/base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow border-0">
+        <!-- Header -->
+        <div class="card-header bg-primary text-white text-center">
+          <h4>Perfil de {{ user.username }}</h4>
+        </div>
+
+        <!-- Imagen de usuario -->
+        <div class="text-center mt-4">
+          {% if user.user_image %}
+            <img src="{{ user.user_image.url }}" alt="Foto de {{ user.username }}" 
+                 class="rounded-circle border border-3 border-primary" 
+                 width="140" height="140"
+                 style="object-fit: cover;">
+          {% else %}
+            <img src="{{ STATIC_URL }}default/default_user_image.png" alt="Usuario sin imagen"
+                 class="rounded-circle border border-3 border-primary"
+                 width="140" height="140">
+          {% endif %}
+        </div>
+
+        <!-- Formulario -->
+        <div class="card-body px-5">
+          <form method="post" enctype="multipart/form-data" class="mt-4">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+              </div>
+            {% endif %}
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="id_username" class="form-label fw-semibold">Usuario</label>
+                {{ form.username }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="id_email" class="form-label fw-semibold">Email</label>
+                {{ form.email }}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="id_fecha_nacimiento" class="form-label fw-semibold">Fecha de nacimiento</label>
+                {{ form.fecha_nacimiento }}
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="id_telefono" class="form-label fw-semibold">Teléfono</label>
+                {{ form.telefono }}
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="id_direccion" class="form-label fw-semibold">Dirección</label>
+              {{ form.direccion }}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_compania" class="form-label fw-semibold">Compañía</label>
+              {{ form.compania }}
+            </div>
+
+            <div class="mb-3">
+              <label for="id_user_image" class="form-label fw-semibold">Actualizar foto</label>
+              {{ form.user_image }}
+            </div>
+
+            <!-- Botones -->
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-success px-4 me-2">
+                <i class="bi bi-save"></i> Guardar Cambios
+              </button>
+              <a href="{% url 'SitProjectApp:index' %}" class="btn btn-secondary px-4">
+                <i class="bi bi-x-circle"></i> Cancelar
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer text-center text-muted">
+          Último acceso: {{ user.last_login|date:"d/m/Y H:i" }}<br>
+          Cuenta creada: {{ user.date_joined|date:"d/m/Y" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

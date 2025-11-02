@@ -66,7 +66,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      {% if user.is_authenticated %}
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav gap-4">
           <li class="nav-item dropdown">
@@ -89,6 +89,32 @@
               <li><a class="dropdown-item" href="{% url 'SitProjectApp:vehiculo_create' %}">Nuevo Vehículo</a></li>
               <li><a class="dropdown-item" href="{% url 'SitProjectApp:vehiculo_list' %}">Listar Vehículos</a></li>
             </ul>
+          </li>
+        </ul>
+        {% endif %}
+        <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'user_detail' %}">Mis Datos</a>
+              </li>
+              <li class="nav-item">
+                  <form action="{% url 'logout' %}" method="POST" style="display: inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link nav-link">Cerrar sesión</button>
+                  </form>
+              </li>              
+          {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+              </li>
+          {% endif %}
+        </ul>
+        <ul class="navbar-nav ms-3">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'SitProjectApp:about' %}">Acerca de</a>
           </li>
         </ul>
       </div>

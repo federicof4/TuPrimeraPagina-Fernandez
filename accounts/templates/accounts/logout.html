@@ -1,0 +1,9 @@
+{% extends 'SitProjectApp/base.html' %}
+
+{% block title %}Se ha cerrado la sesion correctamente{% endblock %}
+{% block content %}
+<div class="page-section">
+  <h2>Has cerrado sesión correctamente.</h2>
+  <a href="{% url 'login' %}" class="btn btn-primary mt-3">Iniciar sesión nuevamente</a>
+</div>
+{% endblock %}

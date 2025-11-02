@@ -1,0 +1,48 @@
+{% extends 'SitProjectApp/base.html' %}
+
+{% block title %}Acerca de mí{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-4 p-4">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center">
+        <!-- Imagen de perfil o logo del proyecto -->
+        <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZ3JhbWFkb3IlMjBkZSUyMGNvbXB1dGFkb3Jhc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000" 
+             alt="Foto de perfil" 
+             class="img-fluid rounded-circle shadow-sm mb-3" 
+             style="max-width: 180px;">
+      </div>
+
+      <div class="col-md-8">
+        <h2 class="fw-bold mb-3 text-primary">Sobre mí</h2>
+        <p class="lead text-muted">
+          ¡Hola! 👋 Soy <strong>Federico Fernandez</strong>, analista programador de aplicaciones y creador de <strong>TuPrimeraPagina-Fernandez</strong>.
+          Este proyecto forma parte del curso de CoderHouse de desarrollo en <strong>Python</strong>.
+        </p>
+        <p>
+          Me apasiona aprender sobre tecnología, automatización y optimización de procesos. 
+          Este sitio fue creado como una práctica para aprender sobre:
+        </p>
+        <ul>
+          <li>📦 Estructura de proyectos Django</li>
+          <li>🎨 Templates y herencia de vistas</li>
+          <li>🧩 Modelos, formularios y vistas personalizadas</li>
+          <li>⚙️ CRUD básico</li>
+        </ul>
+        <p>
+          Si querés contactarme o ver más de mi trabajo, podés hacerlo a través de:
+        </p>
+        <ul class="list-unstyled">
+          <li>✉️ <strong>Email:</strong> federicof4@gmail.com </li>                    
+          <li>🐙 <strong>GitHub:</strong> <a href="https://github.com/federicof4" target="_blank">github.com/federicof4</a></li>
+        </ul>
+
+        <a href="{% url 'SitProjectApp:index' %}" class="btn btn-outline-primary mt-3">
+          ← Volver al inicio
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

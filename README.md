@@ -96,3 +96,5 @@ Curso: CoderHouse - Desarrollo en Python (Django)
 
 Este proyecto se distribuye bajo licencia MIT.
 Podés usarlo, modificarlo y distribuirlo libremente.
+
+VIDEO Explicativo: 

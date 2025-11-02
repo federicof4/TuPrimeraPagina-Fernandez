@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
 from .models import Servicio, Cliente, Vehiculo
 from .forms import ServicioForm, ClienteForm, VehiculoForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
 def index(request):
     return render(request, 'SitProjectApp/index.html')
 
+def about(request):
+    return render(request, 'SitProjectApp/about.html')
+
+@login_required
 def servicio_create(request):
     if request.method == 'POST':
         form = ServicioForm(request.POST)
@@ -17,6 +22,7 @@ def servicio_create(request):
         form = ServicioForm()
     return render(request, 'SitProjectApp/servicio_create.html', {'form': form})
 
+@login_required
 def cliente_create(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -27,6 +33,7 @@ def cliente_create(request):
         form = ClienteForm()
     return render(request, 'SitProjectApp/cliente_create.html', {'form': form})
 
+@login_required
 def vehiculo_create(request):
     if request.method == 'POST':
         form = VehiculoForm(request.POST)
@@ -37,6 +44,7 @@ def vehiculo_create(request):
         form = VehiculoForm()
     return render(request, 'SitProjectApp/vehiculo_create.html', {'form': form})
 
+@login_required
 def servicio_list(request):
     query = request.GET.get('q', '')
     if len(query) > 0:
@@ -50,6 +58,7 @@ def servicio_list(request):
     }
     return render(request, 'SitProjectApp/servicio_list.html', context)
 
+@login_required
 def cliente_list(request):
     query = request.GET.get('q', '')
     if len(query) > 0:
@@ -62,6 +71,7 @@ def cliente_list(request):
     }    
     return render(request, 'SitProjectApp/cliente_list.html', context)
 
+@login_required
 def vehiculo_list(request):
     query = request.GET.get('q', '')
     if len(query) > 0:

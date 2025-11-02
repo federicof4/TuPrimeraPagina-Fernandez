@@ -1,0 +1,45 @@
+{% extends 'SitProjectApp/base.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow border-0">
+        <div class="card-header bg-secondary text-white text-center">
+          <h4>Iniciar Sesión</h4>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="alert alert-danger">
+              <strong>Verifica tus datos:</strong>
+              {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <div class="mb-3">
+              <label for="id_username" class="form-label">Usuario</label>
+              {{ form.username }}
+            </div>
+            <div class="mb-3">
+              <label for="id_password" class="form-label">Contraseña</label>
+              {{ form.password }}
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <small>¿No tienes cuenta?
+            <a href="{% url 'register' %}">Regístrate aquí</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
