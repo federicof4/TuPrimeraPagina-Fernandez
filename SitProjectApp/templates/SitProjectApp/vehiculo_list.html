@@ -45,12 +45,14 @@
                             <td>{{ vehiculo.chasis_nro }}</td>
                             <td>{{ vehiculo.fecha_de_creacion|date:"d/m/Y H:i" }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-secondary">
+                                <a href="{%url 'SitProjectApp:vehiculo_detail' vehiculo.id %}" class="btn btn-sm btn-outline-secondary">
                                     <i class="bi bi-eye"></i> Ver
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning">
+                                <a href="{%url 'SitProjectApp:vehiculo_edit' vehiculo.id %}"class="btn btn-sm btn-outline-warning">
                                     <i class="bi bi-pencil"></i> Editar
                                 </a>
+                                <a href="{%url 'SitProjectApp:vehiculo_delete' vehiculo.id %}"  class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i> Eliminar </a>
                             </td>
                         </tr>
                     {% endfor %}

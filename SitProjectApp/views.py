@@ -75,11 +75,93 @@ def cliente_list(request):
 def vehiculo_list(request):
     query = request.GET.get('q', '')
     if len(query) > 0:
-        vehiculo_list = Vehiculo.objects.filter(marca__icontains=query).order_by('modelo')
+        vehiculo_list = Vehiculo.objects.filter(marca__icontains=query).order_by('id')
     else:
-        vehiculo_list = Vehiculo.objects.all().order_by('modelo')
+        vehiculo_list = Vehiculo.objects.all().order_by('id')
     context = {
         'vehiculo_list': vehiculo_list,
         'query': query,
     }
     return render(request, 'SitProjectApp/vehiculo_list.html', context)
+
+@login_required
+def vehiculo_detail(request, pk):
+    vehiculo = Vehiculo.objects.get(pk=pk)
+    return render(request, 'SitProjectApp/vehiculo_detail.html', {'vehiculo': vehiculo})
+
+@login_required
+def vehiculo_delete(request, pk):
+    vehiculo = Vehiculo.objects.get(pk=pk)
+    if request.method == 'POST':
+        vehiculo.delete()
+        return redirect('SitProjectApp:vehiculo_list')
+    return render(request, 'SitProjectApp/vehiculo_delete.html', {'vehiculo': vehiculo})
+
+
+
+@login_required
+def vehiculo_edit(request, pk):
+    vehiculo = Vehiculo.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = VehiculoForm(request.POST, instance=vehiculo)
+        if form.is_valid():
+            form.save()
+            return redirect('SitProjectApp:vehiculo_list')
+    else:
+        form = VehiculoForm(instance=vehiculo)
+    return render(request, 'SitProjectApp/vehiculo_edit.html', {'form': form})
+
+
+
+@login_required
+def servicio_edit(request, pk):
+    servicio = Servicio.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = ServicioForm(request.POST, instance=servicio)
+        if form.is_valid():
+            form.save()
+            return redirect('SitProjectApp:servicio_list')
+    else:
+        form = ServicioForm(instance=servicio)
+    return render(request, 'SitProjectApp/servicio_edit.html', {'form': form})
+
+
+
+@login_required
+def servicio_detail(request, pk):
+    servicio = Servicio.objects.get(pk=pk)
+    return render(request, 'SitProjectApp/servicio_detail.html', {'servicio': servicio})
+
+@login_required
+def servicio_delete(request, pk):
+    servicio = Servicio.objects.get(pk=pk)
+    if request.method == 'POST':
+        servicio.delete()
+        return redirect('SitProjectApp:servicio_list')
+    return render(request, 'SitProjectApp/servicio_delete.html', {'servicio': servicio})
+
+@login_required
+def cliente_edit(request, pk):
+    cliente = Cliente.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            return redirect('SitProjectApp:cliente_list')
+    else:
+        form = ClienteForm(instance=cliente)
+    return render(request, 'SitProjectApp/cliente_edit.html', {'form': form})
+
+
+@login_required
+def cliente_detail(request, pk):
+    cliente = Cliente.objects.get(pk=pk)
+    return render(request, 'SitProjectApp/cliente_detail.html', {'cliente': cliente})
+
+@login_required
+def cliente_delete(request, pk):
+    cliente = Cliente.objects.get(pk=pk)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('SitProjectApp:cliente_list')
+    return render(request, 'SitProjectApp/cliente_delete.html', {'cliente': cliente})

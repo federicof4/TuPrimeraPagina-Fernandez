@@ -1,0 +1,18 @@
+{% extends "SitProjectApp/base.html" %}
+
+{% block title %}Detalle del Servicio{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+  <h2 class="fw-bold mb-4">Detalle del Servicio</h2>
+  <ul>
+    <li><strong>ID:</strong> {{ servicio.id }}</li>
+    <li><strong>Tipo:</strong> {{ servicio.tipo_servicio }}</li>
+    <li><strong>Descripcion:</strong> {{ servicio.descripcion }}</li>
+    <li><strong>Precio:</strong> {{ servicio.precio }}</li>
+    <li><strong>Fecha de creación:</strong> {{ servicio.fecha_de_creacion|date:"d/m/Y H:i" }}</li>
+  </ul>
+    <a href="{% url 'SitProjectApp:servicio_list' %}" class="btn btn-secondary">Volver al Listado</a>
+</section>
+{% endblock %}

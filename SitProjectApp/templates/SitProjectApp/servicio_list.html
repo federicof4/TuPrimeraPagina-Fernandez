@@ -41,12 +41,14 @@
                             <td>{{ servicio.descripcion }}</td>
                             <td>{{ servicio.fecha_de_creacion|date:"d/m/Y H:i" }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-secondary">
+                                <a href="{%url 'SitProjectApp:servicio_detail' servicio.id %}" class="btn btn-sm btn-outline-secondary">
                                     <i class="bi bi-eye"></i> Ver
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-warning">
+                                <a href="{%url 'SitProjectApp:servicio_edit' servicio.id %}"class="btn btn-sm btn-outline-warning">
                                     <i class="bi bi-pencil"></i> Editar
                                 </a>
+                                <a href="{%url 'SitProjectApp:servicio_delete' servicio.id %}"  class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i> Eliminar </a>
                             </td>
                         </tr>
                     {% endfor %}

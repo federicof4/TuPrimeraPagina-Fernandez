@@ -1,0 +1,36 @@
+{% extends "SitProjectApp/base.html" %}
+
+{% block title %}Detalle del Vehículo{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+  <h2 class="fw-bold mb-4">Detalle del Vehiculo</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_marca" class="form-label fw-semibold">Marca</label>
+      {{ form.marca }}
+    </div>
+    <div class="mb-3">
+      <label for="id_modelo" class="form-label fw-semibold">Modelo</label>
+      {{ form.modelo }}
+    </div>
+    <div class="mb-3">
+      <label for="id_anio" class="form-label fw-semibold">Año</label>
+      {{ form.anio }}
+    </div>
+    <div class="mb-3">
+      <label for="id_chasis_nro" class="form-label fw-semibold">Chasis N°</label>
+      {{ form.chasis_nro }}
+    </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success px-4 me-2">
+          <i class="bi bi-save"></i> Guardar Cambios
+        </button>
+        <a href="{% url 'SitProjectApp:vehiculo_list' %}" class="btn btn-secondary px-4">
+          <i class="bi bi-x-circle"></i> Cancelar
+        </a>
+      </div>
+</section>
+{% endblock %}

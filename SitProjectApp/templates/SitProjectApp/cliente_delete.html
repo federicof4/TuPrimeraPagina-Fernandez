@@ -1,0 +1,24 @@
+{% extends "SitProjectApp/base.html" %}
+
+{% block title %}Borrado de Cliente{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+  <h2 class="fw-bold mb-4">Datos del cliente que se desea eliminar</h2>
+  <ul>
+    <li><strong>ID:</strong> {{ cliente.id }}</li>
+    <li><strong>Nombre:</strong> {{ cliente.nombre }}</li>
+    <li><strong>Apellido:</strong> {{ cliente.apellido }}</li>
+    <li><strong>Email:</strong> {{ cliente.email }}</li>
+    <li><strong>telefono:</strong> {{ cliente.telefono }}</li>
+    <li><strong>Fecha de creación:</strong> {{ cliente.fecha_de_creacion|date:"d/m/Y H:i" }}</li>
+  </ul>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger px-4 me-2">
+        <i class="bi bi-trash"></i> Confirmar Borrado
+      </button>      
+    <a href="{% url 'SitProjectApp:cliente_list' %}" class="btn btn-secondary">Cancelar</a>
+</section>
+{% endblock %}
