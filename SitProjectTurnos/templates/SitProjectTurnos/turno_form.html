@@ -1,0 +1,13 @@
+{% extends 'SitProjectApp/base.html' %}
+{% block title %}Nuevo Turno{% endblock %}
+{% block content %}
+<div class="page-section">
+  <h2>{% if object %}Editar Turno{% else %}Nuevo Turno{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'turnos:turno_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

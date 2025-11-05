@@ -69,6 +69,9 @@
       {% if user.is_authenticated %}
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav gap-4">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'turnos:turno_list' %}">Turnos</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Servicios</a>
             <ul class="dropdown-menu">

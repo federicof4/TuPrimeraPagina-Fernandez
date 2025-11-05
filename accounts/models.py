@@ -17,6 +17,7 @@ class User(AbstractUser):
     direccion = models.CharField(max_length=255, null=True)
     telefono = models.CharField(max_length=20, null=True)
     compania = models.CharField(max_length=100, null=True)
+    nro_documento = models.IntegerField(unique=True, null=True)
 
     def __str__(self):
         return f"{self.username} - {self.email}" 

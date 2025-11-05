@@ -24,6 +24,7 @@ class CustomUserChangeForm(UserChangeForm):
             "telefono",
             "compania",
             "user_image",
+            "nro_documento",
         )
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
@@ -33,4 +34,5 @@ class CustomUserChangeForm(UserChangeForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
             'compania': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Compañía'}),
             'user_image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'nro_documento': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Número de Documento'}),
         }   
