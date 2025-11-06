@@ -29,7 +29,7 @@ class CustomUserChangeForm(UserChangeForm):
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Fecha de Nacimiento', 'type': 'date'}),
+            'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Fecha de Nacimiento'}),            
             'direccion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
             'compania': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Compañía'}),
