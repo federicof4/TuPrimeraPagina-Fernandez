@@ -6,13 +6,15 @@ Proyecto desarrollado como parte del **Curso de CoderHouse**, representando los 
 
 ## 🧩 Descripción
 
-**TuPrimeraPagina-Fernandez** es una aplicación web sencilla que permite la gestión de tres entidades principales:
+**TuPrimeraPagina-Fernandez** es una aplicación web que permite la gestión de cuatro entidades principales:
 
 - **Servicios**
 - **Clientes**
 - **Vehículos**
+- **Turnos**
 
-Cada sección permite **crear nuevos registros** y **visualizar listados** de manera fácil y ordenada.  
+Cada sección permite **crear, editar y borrar registros** y **visualizar listados** de manera fácil y ordenada.
+Tiene el manejo de registro, login, logout y cambio de contraseña para los usuarios.
 Además, cuenta con un módulo de **administración (Django Admin)** para gestionar usuarios y datos desde una interfaz avanzada.
 
 ---
@@ -97,4 +99,11 @@ Curso: CoderHouse - Desarrollo en Python (Django)
 Este proyecto se distribuye bajo licencia MIT.
 Podés usarlo, modificarlo y distribuirlo libremente.
 
-VIDEO Explicativo: 
+VIDEO Explicativo: https://drive.google.com/file/d/1oTqxIvcZSsIjKwsBeY4g8CyXrMisNUsc/view?usp=sharing
+
+*El poyecto consta de 3 apps:
+SitProjectApp de la preentrega anterior, se le agrego el CRUD y el listado con menos columnas(Seccion vehiculos)
+Accounts para el manejo de uusarios. En esta app y en la clase User se contemplan los campos requeridos.
+SitProjectTurnos En esta app se implento el concepto de CVB y mixin
+Admin incluyendo los datos de las apps
+
